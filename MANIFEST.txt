@@ -1,0 +1,14 @@
+.github/workflows/build-max35-4g.yml
+scripts/find_source_root.py
+scripts/import_max35_4g_to_78.py
+scripts/preflight.py
+overlay/main/display/aurora_max35/aurora_max35_display.h
+overlay/main/display/aurora_max35/aurora_max35_display.cc
+overlay/main/display/aurora_max35/ui_pages.h
+overlay/main/display/aurora_max35/ui_home.cc
+overlay/main/display/aurora_max35/ui_chat.cc
+README.md
+UPLOAD_GUIDE_CN.txt
+VERSION
+MANIFEST.txt
+.gitignore

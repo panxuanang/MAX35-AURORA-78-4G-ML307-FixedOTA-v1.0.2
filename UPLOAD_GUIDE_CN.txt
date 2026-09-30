@@ -1,0 +1,45 @@
+MAX35 AURORA 4G / ML307 - GitHub build guide
+=============================================
+
+Target:
+ESP32S3-MAX35-TouchLCD-BCamera-Case-4G
+ML307 4G / rear GC0308 / touch hardware preserved
+
+1. Extract this package.
+2. Create an empty GitHub repository.
+3. Upload every extracted file to the repository root.
+   The hidden .github/workflows directory must be included.
+4. Uploading does not auto-build in v1.0.2. Open GitHub -> Actions.
+5. Select "Build MAX35 AURORA 4G ML307".
+6. Click "Run workflow" and leave upstream_ref as main.
+7. After a successful build, download:
+   MAX35-AURORA-4G-ML307-Firmware
+8. Find:
+   MAX35_AURORA_4G_ML307_<version>_merged-binary.bin
+9. For the first flash after another firmware, erase flash first.
+10. Flash the merged binary at address 0x0.
+
+Build profile:
+- Current 78/xiaozhi stack
+- Real SpotPear MAX35 ML307 vendor hardware board required
+- GC0308 rear camera
+- 90 degree rear-camera rotation
+- ML307 network path
+- UART ISR in IRAM
+- Touch hardware preserved, but AURORA UI does not depend on touch
+- Dialog page opens automatically during conversation
+- Long answers wrap completely
+- Extra-long answers scroll slowly to the end
+- No STELLAR Todo/weather/custom MCP/touch-shutter patches
+- Fixed OTA/backend URL: http://124.221.112.55:8002/xiaozhi/ota/
+- NVS wifi/ota_url override disabled for this 4G build
+
+Important:
+SpotPear states that the SD card is unavailable while 4G is active.
+If the Actions build fails, send the log beginning at the first ERROR line.
+
+
+v1.0.2 fix:
+- The importer no longer mistakes main/boards/common for the physical MAX35 board.
+- It selects/validates the real sp-esp32-s3-lcd-3.5 hardware implementation before adding AURORA UI.
+- Workflow is manual-only to avoid duplicate automatic + manual runs.
